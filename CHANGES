@@ -1,0 +1,172 @@
+Changes in 1.6.6
+========================
+
+Summary of features:
+
+* Django < 1.9 support
+
+* Pynag > 1 support
+
+* Travis build supports Nagios4
+
+* Bugfixes
+
+* Releaser script updated
+
+* Documentation updated
+
+Changes in 1.6.3
+========================
+
+Summary of features:
+
+* Nagios process interaction through adagios.daemon
+
+* License file added
+
+* Installation documentation updated
+
+Changes in 1.6.1
+========================
+
+Summary of features:
+
+* Allow disabling pnp4nagios
+    enable_pnp4nagios is now configurable. If false the Graphs link is removed
+    from the status view.
+
+* Django support expanded
+    Runs on Django 1.4, 1.5 and 1.6.
+
+* Rework forms in "Configure"
+    Forms within objectbrowser (Configure) have gotten a quite the rewrite and
+    many bugs have been fixed.
+
+Changes in 1.6.0
+========================
+
+Summary of features:
+
+* Experimental Multi Site support
+    You can now specify multiple status backends in adagios.conf by
+    using a comma seperated list of paths to livestatus sockets.
+
+* Native integration with graphite.
+    You can now configure a url to graphite and it will will automatically
+    grab all graphs for a specific host or service in the status_detail page
+
+* Support for preferences on a per-user basis.
+    User preferences like themes and languages can now be configured under
+    /misc/preferences or by clicking "Preferences" in the top navigation bar.
+
+
+
+Changes in version 1.5.0
+========================
+There has been a lot of refactoring in the code with tons
+of patches from the awesome guys at Savoir-faire Linux. Big thanks!
+
+Summary of features:
+
+* Multi language Support:
+    Adagios now supports multiple languages, which can
+    Which can be set from settings.py. French translation
+    has already started and anyone can help with the translation
+    at https://www.transifex.com/projects/p/adagios/
+
+
+* Theme Support:
+    Adagios now supports using multiple themes, which at the
+    moment can be changed only by editing settings.py
+
+    Also a proof of concept spacelab theme from
+    http://bootswatch.com/spacelab/
+
+
+* Authorization support
+    Experimental support for authorization. Enable it by setting
+    enable_authorization=True in adagios.conf
+
+    and put a comma seperated list of users (or contactgroups) in
+    adagios.conf like so:
+    administrators="nagiosadmin,administrator,admins"
+
+* License clarifications
+    All references to licenses have been updated to AGPL which
+    is the correct license for adagios.
+
+* Bug fixes
+    We have a long list of bug fixes, which can be seen on
+    https://github.com/opinkerfi/adagios/issues
+
+
+Changes in version 1.4.1
+========================
+Start maintaining a changelog again.
+
+Adagios has changed a lot since 1.2.2. Please the commit log for
+details.
+
+Summary of features:
+
+* Major overhaul of bug fixes and layout issues
+* Performance improvements, in correlation with newer pynag version
+* Slightly modified style
+* Business Intelligence Module
+* /contrib module for custom views
+* Configuration module moved to current style
+
+added lines: 34743 removed lines : 55573 total lines: -20830
+
+
+Changes in version 1.2.2
+========================
+We have a lot of bugfixes and lot of performance improvements. In this version.
+
+124 files changed, 3577 insertions(+), 4374 deletions(-)
+
+Contributors:
+
+- Andres Riancho <andres.riancho@gmail.com>
+- hakong <hakon.gislason@gmail.com>
+- Nathan Bird <nathan@acceleration.net>
+- Pall Sigurdsson <palli@opensource.is>
+- Pall Valmundsson <pall.valmundsson@gmail.com>
+- Tomas Edwardsson <tommi@tommi.org>
+
+
+Objectbrowser:
+
+- Smoother add of new objects
+- Ajaxy edit of check command and its arguments
+- Update to newer pynag.Utils.GitRepo api
+
+OKConfig:
+
+- Add service form now displays notes and notes url on template being added
+
+Status:
+
+- hosts and services view now understand "unhandled" as a query string parameter
+- PNP Support in status/perfdata view
+- Very rough protoptype of business intelligence
+- Removed the okconfig add host button
+- enable in-line saving of notes in status detail
+- Clock is back in the top_navigation_bar
+- Dashboard items are now links
+
+Javascript API:
+
+- We now have a javascript api on top of the rest api
+- access it in javascript via adagios.rest.<module_name> namespace
+
+Misc and noteworthy bug fixes:
+
+- CSS cleanup effort
+- Acknowledgements non-persistent by default
+- Location of mod_wsgi script changed to more standard wsgi.py
+- Use absolute module references for all adagios imports
+- Django SECRET_KEY is now generated on install
+- Improve unicode handling in forms
+- Fix command line lookup for services that are configured for hostgroup only
+
